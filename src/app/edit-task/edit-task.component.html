@@ -1,0 +1,76 @@
+<form style="width:100%;" [formGroup]="editTaskForm">
+  <!-- -->
+  <section class="example-section">
+    <mat-checkbox
+      style="float:left; margin-right: 0.5rem"
+      formControlName="isCompleted"
+    >
+    </mat-checkbox>
+    <mat-form-field style="width: 100%">
+      <input matInput formControlName="description" />
+    </mat-form-field>
+  </section>
+
+  <!-- -->
+  <section class="example-section">
+    <mat-form-field style="width: 50%">
+      <input
+        matInput
+        [matDatepicker]="remindAtDatePicker"
+        placeholder="Remind date"
+        formControlName="remindDate"
+        disabled
+      />
+      <mat-datepicker-toggle matSuffix [for]="remindAtDatePicker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #remindAtDatePicker disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field style="width: 50%; margin-left: 0.5rem">
+      <input
+        matInput
+        placeholder="Remind Time"
+        formControlName="remindTime"
+        disabled
+      />
+    </mat-form-field>
+  </section>
+
+  <!-- -->
+  <section class="example-section">
+    <mat-form-field style="width: 100%">
+      <input
+        matInput
+        [matDatepicker]="dueDatePicker"
+        placeholder="Add due date"
+        formControlName="dueDate"
+        disabled
+      />
+      <mat-datepicker-toggle matSuffix [for]="dueDatePicker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #dueDatePicker disabled="false"></mat-datepicker>
+    </mat-form-field>
+  </section>
+
+  <!-- -->
+  <section class="example-section">
+    <mat-form-field style="width:100%">
+      <mat-label>Repeat</mat-label>
+      <mat-select formControlName="repeat">
+        <mat-option *ngFor="let frequency of frequencies" [value]="frequency">
+          {{ frequency }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+
+  <!-- -->
+  <section class="example-section">
+    <mat-form-field style="width:100%">
+      <textarea
+        matInput
+        placeholder="Add a note"
+        formControlName="notes"
+      ></textarea>
+    </mat-form-field>
+  </section>
+</form>

@@ -1,0 +1,11 @@
+<form style="width:100%;" [formGroup]="todoForm" (ngSubmit)="createTask()">
+  <mat-form-field style="width: 100%" color="accent">
+    <input matInput placeholder="Add Task" formControlName="description" />
+    <button mat-button matSuffix color="primary">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-button matSuffix color="primary" type="submit">
+      Add
+    </button>
+  </mat-form-field>
+</form>

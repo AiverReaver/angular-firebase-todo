@@ -1,0 +1,40 @@
+<mat-toolbar>
+  <button mat-button routerLink="/">
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <!-- <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button *ngIf="auth.user$ | async" mat-button (click)="auth.signOut()">
+      Logout
+    </button>
+  </div> -->
+  <button
+    *ngIf="auth.user$ | async as user"
+    mat-button
+    [mat-menu-trigger-for]="menu"
+    fxHide="false"
+    fxHide.gt-sm
+  >
+    <mat-icon
+      class="profile-photo"
+      *ngIf="user.photoUrl === '' || user.photoUrl === null"
+      >account_circle</mat-icon
+    >
+    <img
+      *ngIf="user.photoUrl !== ''"
+      class="profile-photo"
+      [src]="user.photoURL"
+      alt=""
+    />{{ user.displayName }}
+  </button>
+</mat-toolbar>
+
+<mat-menu xPosition="after" #menu="matMenu">
+  <button mat-menu-item><mat-icon>settings</mat-icon> Products</button>
+  <button mat-menu-item (click)="auth.signOut()">
+    <mat-icon>logout</mat-icon> Logout
+  </button>
+  <!--<button mat-menu-item>Help</button>-->
+</mat-menu>
