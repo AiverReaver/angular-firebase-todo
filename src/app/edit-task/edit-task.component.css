@@ -5,3 +5,7 @@
   height: 60px;
   margin: 1rem;
 }
+
+.mat-form-field {
+  margin-right: 0.5em;
+}

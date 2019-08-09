@@ -1,48 +1,25 @@
-<div class="container">
-  <div class="task-item" matRipple (click)="showEdit()">
-    <mat-checkbox
-      style="float: left; margin-top: 0.35rem"
-      [checked]="task.isCompleted"
-      (change)="onToogle($event)"
-    >
-      {{ task.description }}
-    </mat-checkbox>
-    <button
-      style="float : right;"
-      mat-button
-      color="accent"
-      (click)="deleteTask()"
-    >
-      <mat-icon>delete</mat-icon>
-    </button>
-  </div>
-</div>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-checkbox
+        style="float: left; padding-left: 1rem; padding-top: 0.5rem; padding-bottom: 0.5rem"
+        [checked]="task.isCompleted"
+        (change)="onToogle($event)"
+      >
+        {{ task.description }} <br />
+        ajsjash
+      </mat-checkbox>
+    </mat-panel-title>
+    <mat-panel-description>
+      <div style="margin:auto 0px">
+        <span>{{ task.notes }}</span>
+      </div>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
 
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <mat-checkbox
-          style="float: left; margin: 1rem"
-          [checked]="task.isCompleted"
-          (change)="onToogle($event)"
-        >
-          {{ task.description }}
-        </mat-checkbox>
-      </mat-panel-title>
-      <mat-panel-description>
-        Type your name and age
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+  <app-edit-task [task]="task"></app-edit-task>
 
-    <mat-form-field>
-      <input matInput placeholder="First name" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Age" />
-    </mat-form-field>
-  </mat-expansion-panel>
-</mat-accordion>
-
-<!-- <hr *ngIf="!isLast"> -->
+  <mat-action-row>
+    <button mat-button color="primary" (click)="updateTask()">Save</button>
+  </mat-action-row>
+</mat-expansion-panel>

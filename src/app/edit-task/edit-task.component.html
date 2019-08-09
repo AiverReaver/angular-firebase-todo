@@ -1,19 +1,13 @@
 <form style="width:100%;" [formGroup]="editTaskForm">
   <!-- -->
   <section class="example-section">
-    <mat-checkbox
-      style="float:left; margin-right: 0.5rem"
-      formControlName="isCompleted"
-    >
-    </mat-checkbox>
-    <mat-form-field style="width: 100%">
+    <mat-form-field>
       <input matInput formControlName="description" />
     </mat-form-field>
   </section>
 
-  <!-- -->
   <section class="example-section">
-    <mat-form-field style="width: 50%">
+    <mat-form-field>
       <input
         matInput
         [matDatepicker]="remindAtDatePicker"
@@ -25,7 +19,7 @@
       </mat-datepicker-toggle>
       <mat-datepicker #remindAtDatePicker disabled="false"></mat-datepicker>
     </mat-form-field>
-    <mat-form-field style="width: 50%; margin-left: 0.5rem">
+    <mat-form-field>
       <input
         matInput
         placeholder="Remind Time"
@@ -37,7 +31,7 @@
 
   <!-- -->
   <section class="example-section">
-    <mat-form-field style="width: 100%">
+    <mat-form-field>
       <input
         matInput
         [matDatepicker]="dueDatePicker"
@@ -49,11 +43,7 @@
       </mat-datepicker-toggle>
       <mat-datepicker #dueDatePicker disabled="false"></mat-datepicker>
     </mat-form-field>
-  </section>
-
-  <!-- -->
-  <section class="example-section">
-    <mat-form-field style="width:100%">
+    <mat-form-field>
       <mat-label>Repeat</mat-label>
       <mat-select formControlName="repeat">
         <mat-option *ngFor="let frequency of frequencies" [value]="frequency">
@@ -65,7 +55,7 @@
 
   <!-- -->
   <section class="example-section">
-    <mat-form-field style="width:100%">
+    <mat-form-field style="width:50%">
       <textarea
         matInput
         placeholder="Add a note"

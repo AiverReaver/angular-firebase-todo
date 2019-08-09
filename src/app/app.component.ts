@@ -12,8 +12,6 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
 export class AppComponent implements OnInit {
   @ViewChild('sidenav', { static: true }) public sidenav: MatSidenav;
 
-  isOpened: boolean;
-
   constructor(
     private sidenavService: SidenavService,
     public auth: AuthService

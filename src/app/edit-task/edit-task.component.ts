@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../_models/task.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SidenavService } from '../_services/sidenav.service';
@@ -10,24 +10,17 @@ import { TaskService } from '../_services/task.service';
   styleUrls: ['./edit-task.component.css']
 })
 export class EditTaskComponent implements OnInit {
-  task = new Task();
+  @Input() task: Task;
+  @Output() taskUpdated = new EventEmitter<Task>();
 
   frequencies = ['Daily', 'Weekly', 'Weekdays', 'Monthly', 'Yearly'];
 
   editTaskForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private sidenavService: SidenavService,
-    private taskService: TaskService
-  ) {}
+  constructor(private fb: FormBuilder, private taskService: TaskService) {}
 
   ngOnInit() {
-    this.task = this.sidenavService.task;
     this.createTaskEditForm();
-    this.editTaskForm.valueChanges.subscribe(_ => {
-      this.updateTask();
-    });
   }
 
   createTaskEditForm() {

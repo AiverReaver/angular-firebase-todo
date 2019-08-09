@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Task } from '../_models/task.model';
 import { TaskService } from '../_services/task.service';
 import { SidenavService } from '../_services/sidenav.service';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-task-item',
@@ -11,6 +12,9 @@ import { SidenavService } from '../_services/sidenav.service';
 export class TaskItemComponent implements OnInit {
   @Input() task: Task;
   @Input() isLast: boolean;
+  @ViewChild(EditTaskComponent, { static: true }) child: EditTaskComponent;
+
+  isOpend = false;
 
   isCompleted: boolean;
 
@@ -28,6 +32,10 @@ export class TaskItemComponent implements OnInit {
 
   deleteTask() {
     this.taskService.deleteTask(this.task.uid);
+  }
+
+  updateTask() {
+    this.taskService.updateTask(this.task.uid, this.child.editTaskForm.value);
   }
 
   showEdit() {

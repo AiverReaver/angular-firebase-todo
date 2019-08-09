@@ -1,22 +1,59 @@
 <mat-sidenav-container
   class="example-container mat-typography app-frame mat-app-background"
+  [autosize]="true"
 >
-  <mat-sidenav
-    #sidenav
-    disableClose="false"
-    (openedStart)="isOpened = true"
-    (closedStart)="isOpened = false"
-    position="end"
-    mode="side"
-  >
-    <a *ngIf="!isOpened">Dummy content for the initializing sid </a>
-    <app-edit-task *ngIf="isOpened"></app-edit-task>
+  <mat-sidenav #sidenav disableClose="true" mode="side" [opened]="true">
+    <button
+      *ngIf="auth.user$ | async as user"
+      mat-button
+      [mat-menu-trigger-for]="menu"
+    >
+      <mat-icon
+        class="profile-photo"
+        *ngIf="user.photoUrl === '' || user.photoUrl === null"
+        >account_circle</mat-icon
+      >
+      <img
+        *ngIf="user.photoUrl !== ''"
+        class="profile-photo"
+        [src]="user.photoURL"
+        alt=""
+      />{{ user.displayName }}
+    </button>
+    <mat-menu xPosition="after" #menu="matMenu">
+      <button mat-menu-item><mat-icon>settings</mat-icon> Settings</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="auth.signOut()">
+        <mat-icon>logout</mat-icon> Logout
+      </button>
+    </mat-menu>
+
+    <!-- <span class="fill-remaining-space"></span> -->
+
+    <button mat-icon-button style="float: right">
+      <mat-icon>search</mat-icon>
+    </button>
+
+    <div style="margin: 2rem 0 1rem; max-width: 15rem">
+      <button mat-button style="width: 100%">
+        <mat-icon>wb_sunny</mat-icon> My Day
+      </button>
+      <button mat-button style="width: 100%">
+        <mat-icon>star_border</mat-icon> Favorite
+      </button>
+      <button mat-button style="width: 100%">
+        <mat-icon>date_range</mat-icon> Planned
+      </button>
+      <button mat-button style="width: 100%">
+        <mat-icon>track_changes</mat-icon> Task
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <div>
-      <app-nav></app-nav>
-
       <div class="container mt-5">
         <div *ngIf="auth.user$ | async; then authenticated; else guest">
           <!-- template will replace this div -->
