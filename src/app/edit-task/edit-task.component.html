@@ -13,19 +13,13 @@
         [matDatepicker]="remindAtDatePicker"
         placeholder="Remind date"
         formControlName="remindDate"
-        disabled
       />
       <mat-datepicker-toggle matSuffix [for]="remindAtDatePicker">
       </mat-datepicker-toggle>
       <mat-datepicker #remindAtDatePicker disabled="false"></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Remind Time"
-        formControlName="remindTime"
-        disabled
-      />
+      <input matInput placeholder="Remind Time" formControlName="remindTime" />
     </mat-form-field>
   </section>
 
@@ -37,7 +31,6 @@
         [matDatepicker]="dueDatePicker"
         placeholder="Add due date"
         formControlName="dueDate"
-        disabled
       />
       <mat-datepicker-toggle matSuffix [for]="dueDatePicker">
       </mat-datepicker-toggle>

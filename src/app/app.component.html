@@ -35,16 +35,32 @@
     </button>
 
     <div style="margin: 2rem 0 1rem; max-width: 15rem">
-      <button mat-button style="width: 100%">
+      <button
+        mat-button
+        style="width: 100%; border-left: 3px solid #69f0ae"
+        (click)="changeCategory('SuRfmnZRf3iisJfT41DQ')"
+      >
         <mat-icon>wb_sunny</mat-icon> My Day
       </button>
-      <button mat-button style="width: 100%">
+      <button
+        mat-button
+        style="width: 100%"
+        (click)="changeCategory('4umgVBTrHaSjgc5JHew4')"
+      >
         <mat-icon>star_border</mat-icon> Favorite
       </button>
-      <button mat-button style="width: 100%">
+      <button
+        mat-button
+        style="width: 100%"
+        (click)="changeCategory('UnYOdJhBAukADMBJbUdt')"
+      >
         <mat-icon>date_range</mat-icon> Planned
       </button>
-      <button mat-button style="width: 100%">
+      <button
+        mat-button
+        style="width: 100%"
+        (click)="changeCategory('uCIQ4NTBEBBvKYTmPsHx')"
+      >
         <mat-icon>track_changes</mat-icon> Task
       </button>
     </div>

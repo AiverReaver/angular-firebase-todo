@@ -1,10 +1,6 @@
 <app-add-task (addTask)="addTask($event)"></app-add-task>
 
 <mat-accordion>
-  <app-task-item
-    *ngFor="let task of tasks | async; index as i; last as isLast"
-    [task]="task"
-    [isLast]="isLast"
-  >
+  <app-task-item *ngFor="let task of tasks | async" [task]="task">
   </app-task-item>
 </mat-accordion>

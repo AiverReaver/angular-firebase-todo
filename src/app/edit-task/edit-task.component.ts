@@ -27,9 +27,9 @@ export class EditTaskComponent implements OnInit {
     this.editTaskForm = this.fb.group({
       description: [this.task.description, Validators.required],
       isCompleted: [this.task.isCompleted],
-      remindDate: [this.task.remindDate],
+      remindDate: [{ value: this.task.description, disabled: true }],
       remindTime: [this.task.remindTime],
-      dueDate: [this.task.dueDate],
+      dueDate: [{ value: this.task.description, disabled: true }],
       repeat: [this.task.repeat],
       notes: [this.task.notes]
     });

@@ -11,17 +11,11 @@ import { EditTaskComponent } from '../edit-task/edit-task.component';
 })
 export class TaskItemComponent implements OnInit {
   @Input() task: Task;
-  @Input() isLast: boolean;
   @ViewChild(EditTaskComponent, { static: true }) child: EditTaskComponent;
-
-  isOpend = false;
 
   isCompleted: boolean;
 
-  constructor(
-    private taskService: TaskService,
-    private sidenavService: SidenavService
-  ) {}
+  constructor(private taskService: TaskService) {}
 
   ngOnInit() {}
 
@@ -36,10 +30,5 @@ export class TaskItemComponent implements OnInit {
 
   updateTask() {
     this.taskService.updateTask(this.task.uid, this.child.editTaskForm.value);
-  }
-
-  showEdit() {
-    this.sidenavService.task = this.task;
-    this.sidenavService.toggle();
   }
 }

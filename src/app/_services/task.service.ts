@@ -5,6 +5,7 @@ import {
   AngularFirestoreDocument,
   AngularFirestoreCollection
 } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,16 @@ export class TaskService {
 
   constructor(private afs: AngularFirestore) {
     this.tasks = afs.collection<Task>('todos');
+  }
+
+  getTask(userId: string, categoryId: string): Observable<Task[]> {
+    const tasks = this.afs
+      .collection<Task>('todos', ref =>
+        ref.where('userId', '==', userId).where('categoryId', '==', categoryId)
+      )
+      .valueChanges({ idField: 'uid' });
+
+    return tasks;
   }
 
   async addTask(task) {

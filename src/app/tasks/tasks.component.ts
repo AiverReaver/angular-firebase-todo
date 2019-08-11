@@ -5,6 +5,8 @@ import { TaskService } from '../_services/task.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../_services/auth.service';
 import { User } from '../_models/user.model';
+import { SidenavService } from '../_services/sidenav.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tasks',
@@ -17,7 +19,7 @@ export class TasksComponent implements OnInit {
 
   constructor(
     private taskService: TaskService,
-    private afs: AngularFirestore,
+    private sidenavaService: SidenavService,
     private auth: AuthService
   ) {}
 
@@ -25,14 +27,21 @@ export class TasksComponent implements OnInit {
     this.auth.user$.subscribe(
       user => {
         this.user = user;
-        this.tasks = this.afs
-          .collection<Task>('todos', ref => ref.where('userId', '==', user.uid))
-          .valueChanges({ idField: 'uid' });
+        this.updateTasks();
       },
       err => {
         console.log(err);
       }
     );
+  }
+
+  updateTasks() {
+    if (this.user !== undefined) {
+      this.tasks = this.taskService.getTask(
+        this.user.uid,
+        this.sidenavaService.getCategoryId()
+      );
+    }
   }
 
   addTask($event) {
