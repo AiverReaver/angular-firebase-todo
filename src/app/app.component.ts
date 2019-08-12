@@ -2,7 +2,6 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { SidenavService } from './_services/sidenav.service';
 import { AuthService } from './_services/auth.service';
-import { EditTaskComponent } from './edit-task/edit-task.component';
 import { TasksComponent } from './tasks/tasks.component';
 
 @Component({
@@ -18,11 +17,7 @@ export class AppComponent implements OnInit {
   constructor(
     private sidenavService: SidenavService,
     public auth: AuthService
-  ) {
-    // this.sidenavService.setSelectedCategory = localStorage.getItem(
-    //   'selectedCategory'
-    // );
-  }
+  ) {}
 
   ngOnInit() {
     this.sidenavService.setSidenav(this.sidenav);

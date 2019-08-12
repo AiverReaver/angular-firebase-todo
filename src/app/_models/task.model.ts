@@ -1,6 +1,7 @@
-export class Task {
+export interface Task {
   uid?: string;
   userId: string;
+  categoryId?: string;
   description: string;
   remindDate?: string;
   remindTime?: string;

@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from '../_models/task.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SidenavService } from '../_services/sidenav.service';
 import { TaskService } from '../_services/task.service';
 
 @Component({
@@ -10,8 +9,7 @@ import { TaskService } from '../_services/task.service';
   styleUrls: ['./edit-task.component.css']
 })
 export class EditTaskComponent implements OnInit {
-  @Input() task: Task;
-  @Output() taskUpdated = new EventEmitter<Task>();
+  task: Task;
 
   frequencies = ['Daily', 'Weekly', 'Weekdays', 'Monthly', 'Yearly'];
 
@@ -21,17 +19,31 @@ export class EditTaskComponent implements OnInit {
 
   ngOnInit() {
     this.createTaskEditForm();
+
+    this.taskService.getSelectedTask.subscribe(task => {
+      this.editTaskForm.setValue({
+        description: task.description,
+        isCompleted: task.isCompleted,
+        remindDate: task.remindDate,
+        remindTime: task.remindTime,
+        dueDate: task.dueDate,
+        repeat: task.repeat,
+        notes: task.notes
+      });
+
+      this.task = task;
+    });
   }
 
   createTaskEditForm() {
     this.editTaskForm = this.fb.group({
-      description: [this.task.description, Validators.required],
-      isCompleted: [this.task.isCompleted],
-      remindDate: [{ value: this.task.description, disabled: true }],
-      remindTime: [this.task.remindTime],
-      dueDate: [{ value: this.task.description, disabled: true }],
-      repeat: [this.task.repeat],
-      notes: [this.task.notes]
+      description: ['', Validators.required],
+      isCompleted: [false],
+      remindDate: [''],
+      remindTime: [''],
+      dueDate: [''],
+      repeat: [''],
+      notes: ['']
     });
   }
 

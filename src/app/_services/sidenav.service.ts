@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { MatSidenav } from '@angular/material';
-import { Task } from '../_models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +23,17 @@ export class SidenavService {
 
   public getCategoryId(): string {
     return this.selectedCategoryId;
+  }
+
+  public open() {
+    return this.sidenav.open();
+  }
+
+  public close() {
+    return this.sidenav.close();
+  }
+
+  public toggle() {
+    this.sidenav.toggle();
   }
 }

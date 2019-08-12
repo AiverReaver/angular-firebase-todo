@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Task } from '../_models/task.model';
 import { TaskService } from '../_services/task.service';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../_services/auth.service';
 import { User } from '../_models/user.model';
 import { SidenavService } from '../_services/sidenav.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tasks',

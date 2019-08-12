@@ -1,25 +1,19 @@
-<mat-expansion-panel>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      <mat-checkbox
-        style="float: left; padding-left: 1rem; padding-top: 0.5rem; padding-bottom: 0.5rem"
-        [checked]="task.isCompleted"
-        (change)="onToogle($event)"
-      >
-        {{ task.description }} <br />
-        ajsjash
-      </mat-checkbox>
-    </mat-panel-title>
-    <mat-panel-description>
-      <div style="margin:auto 0px">
-        <span>{{ task.notes }}</span>
-      </div>
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-
-  <app-edit-task [task]="task"></app-edit-task>
-
-  <mat-action-row>
-    <button mat-button color="primary" (click)="updateTask()">Save</button>
-  </mat-action-row>
-</mat-expansion-panel>
+<div class="container">
+  <div class="task-item" matRipple (click)="showEdit()">
+    <mat-checkbox
+      style="float: left; margin-top: 0.35rem"
+      [checked]="task.isCompleted"
+      (change)="onToogle($event)"
+    >
+      {{ task.description }}
+    </mat-checkbox>
+    <button
+      style="float : right;"
+      mat-button
+      color="accent"
+      (click)="deleteTask()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

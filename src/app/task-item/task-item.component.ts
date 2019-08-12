@@ -2,7 +2,6 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Task } from '../_models/task.model';
 import { TaskService } from '../_services/task.service';
 import { SidenavService } from '../_services/sidenav.service';
-import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-task-item',
@@ -11,11 +10,13 @@ import { EditTaskComponent } from '../edit-task/edit-task.component';
 })
 export class TaskItemComponent implements OnInit {
   @Input() task: Task;
-  @ViewChild(EditTaskComponent, { static: true }) child: EditTaskComponent;
 
   isCompleted: boolean;
 
-  constructor(private taskService: TaskService) {}
+  constructor(
+    private taskService: TaskService,
+    private sidenavService: SidenavService
+  ) {}
 
   ngOnInit() {}
 
@@ -28,7 +29,8 @@ export class TaskItemComponent implements OnInit {
     this.taskService.deleteTask(this.task.uid);
   }
 
-  updateTask() {
-    this.taskService.updateTask(this.task.uid, this.child.editTaskForm.value);
+  showEdit() {
+    this.taskService.setSelectedTask = this.task;
+    this.sidenavService.open();
   }
 }

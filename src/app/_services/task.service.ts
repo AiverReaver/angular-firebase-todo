@@ -5,7 +5,7 @@ import {
   AngularFirestoreDocument,
   AngularFirestoreCollection
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,19 @@ import { Observable } from 'rxjs';
 export class TaskService {
   tasks: AngularFirestoreCollection<Task>;
   private taskDoc: AngularFirestoreDocument<Task>;
+  private selectedTask: Subject<Task>;
 
   constructor(private afs: AngularFirestore) {
     this.tasks = afs.collection<Task>('todos');
+    this.selectedTask = new Subject<Task>();
+  }
+
+  get getSelectedTask() {
+    return this.selectedTask;
+  }
+
+  set setSelectedTask(selectedTask: Task) {
+    this.selectedTask.next(selectedTask);
   }
 
   getTask(userId: string, categoryId: string): Observable<Task[]> {
