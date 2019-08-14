@@ -3,6 +3,7 @@ import { MatSidenav } from '@angular/material';
 import { SidenavService } from './_services/sidenav.service';
 import { AuthService } from './_services/auth.service';
 import { TasksComponent } from './tasks/tasks.component';
+import { CategoryService } from './_services/category.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private sidenavService: SidenavService,
-    public auth: AuthService
+    public auth: AuthService,
+    private categoryService: CategoryService
   ) {}
 
   ngOnInit() {
@@ -27,5 +29,9 @@ export class AppComponent implements OnInit {
     localStorage.setItem('selectedCategory', categoryId);
     this.sidenavService.setSelectedCategory(categoryId);
     this.tasksComponent.updateTasks();
+  }
+
+  createCategory() {
+    this.categoryService.addCategory('new list');
   }
 }

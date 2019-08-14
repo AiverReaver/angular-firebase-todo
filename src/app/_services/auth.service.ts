@@ -18,6 +18,7 @@ import { User } from '../_models/user.model';
 export class AuthService {
   user$: Observable<User>;
   isAnonymaous: boolean;
+  userId: string;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -26,6 +27,7 @@ export class AuthService {
   ) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
+        this.userId = user.uid;
         // Logged in
         if (user) {
           if (user.isAnonymous) {

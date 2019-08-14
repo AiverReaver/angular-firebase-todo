@@ -6,6 +6,7 @@ import {
   AngularFirestoreCollection
 } from '@angular/fire/firestore';
 import { Observable, Subject } from 'rxjs';
+import { SidenavService } from './sidenav.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,10 @@ export class TaskService {
   private taskDoc: AngularFirestoreDocument<Task>;
   private selectedTask: Subject<Task>;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(
+    private afs: AngularFirestore,
+    private sidenavService: SidenavService
+  ) {
     this.tasks = afs.collection<Task>('todos');
     this.selectedTask = new Subject<Task>();
   }
@@ -41,6 +45,7 @@ export class TaskService {
   async addTask(task) {
     const data = {
       userId: task.userId,
+      categoryId: this.sidenavService.getCategoryId(),
       description: task.description,
       isCompleted: false
     };

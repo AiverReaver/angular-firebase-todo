@@ -1,11 +1,11 @@
 <div class="container">
   <div class="task-item" matRipple (click)="showEdit()">
     <mat-checkbox
-      style="float: left; margin-top: 0.35rem"
+      style="float: left; margin-top: 0.35rem; margin-left: 1rem"
       [checked]="task.isCompleted"
       (change)="onToogle($event)"
     >
-      {{ task.description }}
+      <strong>{{ task.description }}</strong>
     </mat-checkbox>
     <button
       style="float : right;"
@@ -17,3 +17,5 @@
     </button>
   </div>
 </div>
+
+<mat-divider></mat-divider>

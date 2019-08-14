@@ -6,7 +6,7 @@ app-root,
   margin: 0;
   height: 100%;
   box-sizing: border-box;
-  color: #e0e0e0;
+  /* color: #e0e0e0; */
 }
 
 .fill-remaining-space {
