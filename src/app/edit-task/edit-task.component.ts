@@ -24,11 +24,11 @@ export class EditTaskComponent implements OnInit {
       this.editTaskForm.setValue({
         description: task.description,
         isCompleted: task.isCompleted,
-        remindDate: task.remindDate,
-        remindTime: task.remindTime,
-        dueDate: task.dueDate,
-        repeat: task.repeat,
-        notes: task.notes
+        remindDate: task.remindDate || '',
+        remindTime: task.remindTime || '',
+        dueDate: task.dueDate || '',
+        repeat: task.repeat || '',
+        notes: task.notes || ''
       });
 
       this.task = task;

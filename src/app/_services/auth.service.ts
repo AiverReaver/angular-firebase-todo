@@ -27,9 +27,9 @@ export class AuthService {
   ) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
-        this.userId = user.uid;
         // Logged in
         if (user) {
+          this.userId = user.uid;
           if (user.isAnonymous) {
             return of(user);
           }

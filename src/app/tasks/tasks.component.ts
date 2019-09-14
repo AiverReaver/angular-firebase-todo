@@ -34,7 +34,7 @@ export class TasksComponent implements OnInit {
   }
 
   updateTasks() {
-    if (this.user !== undefined) {
+    if (this.user) {
       this.tasks = this.taskService.getTask(
         this.user.uid,
         this.sidenavaService.getCategoryId()

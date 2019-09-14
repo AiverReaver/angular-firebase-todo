@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import {
+  AngularFireFunctionsModule,
+  FUNCTIONS_ORIGIN
+} from '@angular/fire/functions';
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +20,7 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { LoginComponent } from './login/login.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { AppMaterialModule } from './app-material.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -44,12 +49,14 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
+    AngularFireFunctionsModule,
     AppRoutingModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     BrowserAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [{ provide: FUNCTIONS_ORIGIN, useValue: 'http://localhost:5000' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

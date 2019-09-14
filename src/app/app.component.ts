@@ -4,6 +4,7 @@ import { SidenavService } from './_services/sidenav.service';
 import { AuthService } from './_services/auth.service';
 import { TasksComponent } from './tasks/tasks.component';
 import { CategoryService } from './_services/category.service';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +19,17 @@ export class AppComponent implements OnInit {
   constructor(
     private sidenavService: SidenavService,
     public auth: AuthService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private fns: AngularFireFunctions
   ) {}
 
   ngOnInit() {
     this.sidenavService.setSidenav(this.sidenav);
+    // const callable = this.fns.httpsCallable('createInvitation');
+    // const data = callable('test');
+    // data.subscribe(a => {
+    //   console.log(a);
+    // });
   }
 
   changeCategory(categoryId) {

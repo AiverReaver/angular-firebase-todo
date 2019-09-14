@@ -1,0 +1,53 @@
+[debug] [2019-08-14T11:17:53.112Z] ----------------------------------------------------------------------
+[debug] [2019-08-14T11:17:53.115Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-08-14T11:17:53.115Z] CLI Version:   7.1.0
+[debug] [2019-08-14T11:17:53.116Z] Platform:      win32
+[debug] [2019-08-14T11:17:53.116Z] Node Version:  v12.3.1
+[debug] [2019-08-14T11:17:53.117Z] Time:          Wed Aug 14 2019 16:47:53 GMT+0530 (India Standard Time)
+[debug] [2019-08-14T11:17:53.117Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-14T11:17:53.130Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-14T11:17:53.131Z] > authorizing via signed-in user
+[debug] [2019-08-14T11:17:53.132Z] [iam] checking project karnklie-todo for permissions ["firebase.projects.get"]
+[debug] [2019-08-14T11:17:53.135Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/karnklie-todo:testIamPermissions  
+
+[debug] [2019-08-14T11:17:55.703Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-14T11:17:55.705Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/karnklie-todo  
+ 
+[debug] [2019-08-14T11:17:58.315Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "12"
+[debug] [2019-08-14T11:17:58.336Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/karnklie-todo/adminSdkConfig  
+ 
+[debug] [2019-08-14T11:17:58.807Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "E:\PersonalProjects\karnklie-todo\functions" for Cloud Functions...
+[debug] [2019-08-14T11:17:59.575Z] [runtime-status] Functions runtime initialized. {"cwd":"E:\\PersonalProjects\\karnklie-todo\\functions","node_version":"12.3.1"}
+[debug] [2019-08-14T11:17:59.575Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true} {}
+[debug] [2019-08-14T11:17:59.579Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.2.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-08-14T11:17:59.581Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.1.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-08-14T11:17:59.582Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.1.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-08-14T11:17:59.616Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.2.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-08-14T11:17:59.646Z] [runtime-status] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.2.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-admin\\lib\\index.js"}}
+[info] i  functions: HTTP trigger initialized at http://localhost:5000/karnklie-todo/us-central1/createInvitation
+[info] i  functions: HTTP trigger initialized at http://localhost:5000/karnklie-todo/us-central1/sharing
+[debug] [2019-08-14T11:18:33.933Z] Accepted request GET /karnklie-todo/us-central1/sharing?InvitationToken=asasasas --> sharing
+[debug] [2019-08-14T11:18:34.352Z] [runtime-status] Functions runtime initialized. {"cwd":"E:\\PersonalProjects\\karnklie-todo\\functions","node_version":"12.3.1"}
+[info] i  functions: Beginning execution of "sharing"
+[debug] [2019-08-14T11:18:34.354Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true} {}
+[debug] [2019-08-14T11:18:34.359Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.2.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-08-14T11:18:34.363Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.1.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-08-14T11:18:34.365Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.1.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-08-14T11:18:34.417Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.2.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-08-14T11:18:34.449Z] [runtime-status] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.2.0","resolution":"E:\\PersonalProjects\\karnklie-todo\\functions\\node_modules\\firebase-admin\\lib\\index.js"}}
+[debug] [2019-08-14T11:18:34.463Z] [runtime-status] Trigger "sharing" has been found, beginning invocation! {}
+[debug] [2019-08-14T11:18:34.464Z] [runtime-status]  {"httpsTrigger":{},"name":"sharing","entryPoint":"sharing"}
+[debug] [2019-08-14T11:18:34.464Z] [runtime-status] Running sharing in mode HTTPS {}
+[debug] [2019-08-14T11:18:34.464Z] [default-admin-app-used]  {"databaseURL":"https://karnklie-todo.firebaseio.com","storageBucket":"karnklie-todo.appspot.com","projectId":"karnklie-todo","credential":{}}
+[debug] [2019-08-14T11:18:34.464Z] [runtime-status] Intializing default app. {"databaseURL":"https://karnklie-todo.firebaseio.com","storageBucket":"karnklie-todo.appspot.com","projectId":"karnklie-todo","credential":{}}
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-08-14T11:18:34.474Z] {"socketPath":"\\\\?\\pipe\\E:\\PersonalProjects\\karnklie-todo\\functions\\11092"}
+[debug] [2019-08-14T11:18:34.475Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\E:\\PersonalProjects\\karnklie-todo\\functions\\11092"}
+[debug] [2019-08-14T11:18:34.487Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-08-14T11:18:34.495Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "sharing" in ~1s

@@ -10,7 +10,9 @@ export class SidenavService {
   private selectedCategoryId: string;
 
   constructor() {
-    this.setSelectedCategory(localStorage.getItem('selectedCategory'));
+    this.setSelectedCategory(
+      localStorage.getItem('selectedCategory') || 'SuRfmnZRf3iisJfT41DQ'
+    );
   }
 
   public setSidenav(sidenav: MatSidenav) {
